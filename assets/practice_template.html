@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+  PRACTICE TEMPLATE — lesson-forge
+  Holds ONLY: practical exercise, self-check quiz, revision notes, review
+  schedule, nav. Companion to lesson_template.html (same lesson number, no
+  "-practice" suffix) which holds objectives/content/reading — do not merge
+  them back together. Replace all [BRACKETED] placeholders.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[LESSON N: TITLE] — Practice &amp; Revision</title>
+<!-- KaTeX for math notation — leave in place even if this lesson has no
+     formulas (harmless if unused). Use \( ... \) inline and \[ ... \] or
+     $$ ... $$ for display equations below. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '\\[', right: '\\]', display: true},
+    {left: '\\(', right: '\\)', display: false}
+  ]});"></script>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --muted: #5c5c70;
+    --accent: #4f5dd6;
+    --accent-soft: #eef0fd;
+    --bg: #fdfdfb;
+    --card: #ffffff;
+    --border: #e4e4ee;
+    --warn: #b45309;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+  header.lesson-head {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .meta-row {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    font-size: 0.85rem; color: var(--muted); margin-bottom: 8px;
+  }
+  .meta-row span { background: var(--accent-soft); padding: 3px 10px; border-radius: 999px; }
+  .meta-row span.tag { background: var(--warn); color: #fff; }
+  h1 { font-size: 1.5rem; margin: 4px 0 0; }
+  h1 .sub { display: block; font-size: 0.95rem; color: var(--muted); font-weight: 400; margin-top: 4px; }
+  h2 {
+    font-size: 1.2rem; margin-top: 40px; margin-bottom: 12px;
+    color: var(--accent); border-left: 4px solid var(--accent);
+    padding-left: 10px;
+  }
+  section { margin-bottom: 8px; }
+  code, pre code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; }
+  pre {
+    background: #1a1a2e; color: #e8e8f0; padding: 14px 16px;
+    border-radius: 8px; overflow-x: auto; font-size: 0.88rem;
+  }
+  code:not(pre code) { background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; }
+  a { color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px; margin: 14px 0;
+  }
+  details {
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 14px; margin-top: 10px; background: #fafaff;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--accent);
+    outline: none;
+  }
+  details[open] summary { margin-bottom: 8px; }
+  .exercise-type {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 2px 9px; border-radius: 999px; margin-bottom: 10px;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .code-files {
+    display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0;
+  }
+  .code-files a {
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.85rem;
+    background: #1a1a2e; color: #e8e8f0 !important; text-decoration: none;
+    padding: 7px 12px; border-radius: 6px;
+  }
+  .code-files a:hover { opacity: 0.85; }
+  .parsons-block {
+    background: #1a1a2e; color: #e8e8f0; padding: 10px 14px;
+    border-radius: 6px; margin-bottom: 6px; font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88rem; cursor: grab;
+  }
+  .quiz-q { margin-bottom: 18px; }
+  .quiz-q p.prompt { font-weight: 600; margin-bottom: 6px; }
+  .quiz-q.callback { border-left: 3px solid var(--warn); padding-left: 12px; }
+  .quiz-q.callback .prompt::after {
+    content: " (callback)"; font-weight: 400; font-size: 0.8rem; color: var(--warn);
+  }
+  .revision {
+    background: #fffaf0; border: 1px solid #f0e0c0; border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .revision b { color: var(--warn); }
+  .review-sched {
+    font-size: 0.9rem; color: var(--muted); border-top: 1px dashed var(--border);
+    margin-top: 30px; padding-top: 16px;
+  }
+  .back-to-content {
+    display: block; text-align: center; margin: 0 0 30px;
+    background: var(--accent-soft); color: var(--accent) !important; text-decoration: none;
+    font-weight: 600; padding: 12px 18px; border-radius: 10px; font-size: 0.95rem;
+  }
+  nav.lesson-nav {
+    display: flex; justify-content: space-between; margin-top: 20px;
+    padding-top: 20px; border-top: 2px solid var(--border);
+    font-size: 0.9rem;
+  }
+  nav.lesson-nav a { text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-to-content" href="[NN-title].html">&larr; Back to lesson content</a>
+
+  <header class="lesson-head">
+    <div class="meta-row">
+      <span class="tag">Practice &amp; Revision</span>
+      <span>Lesson [N] of [TOTAL]</span>
+    </div>
+    <h1>[LESSON TITLE]<span class="sub">Exercise, self-check quiz, and revision notes</span></h1>
+  </header>
+
+  <section>
+    <h2>Practical Exercise</h2>
+    <div class="card">
+      <!-- Set the exercise type label to whatever fits — see references/pedagogy.md
+           for the domain-specific menu: Predict/Investigate/Modify/Make (PRIMM),
+           Parsons Problem, Debug This, Read & Explain, Trace Execution, Proof
+           Ordering, Find The Error, Counterexample, Code Review, Design Doc,
+           Write Tests, Refactor, or plain Exercise. Omit the span if no label fits. -->
+      <span class="exercise-type">[Exercise type]</span>
+      <p>[Concrete task the learner does.]</p>
+
+      <!-- PARSONS PROBLEM example markup — use this shape instead of the
+           plain <p> above when the exercise type is a Parsons problem.
+           Each block is one shuffled line/step; number them in SHUFFLED
+           order as shown to the learner (the correct order goes in the
+           solution below, not here):
+      <div class="parsons-block">3.  temp = node.next</div>
+      <div class="parsons-block">1.  prev = null</div>
+      <div class="parsons-block">4.  node.next = prev</div>
+      <div class="parsons-block">2.  node = head</div>
+      <div class="parsons-block">5.  prev = node; node = temp</div>
+      -->
+
+      <!-- Only for CS/SWE/mixed domains where the exercise involves real
+           runnable code — omit entirely for math or non-code lessons. -->
+      <div class="code-files">
+        <a href="[NN-exercise-starter.ext]">↓ starter.[ext]</a>
+        <a href="[NN-exercise-solution.ext]">↓ solution.[ext]</a>
+      </div>
+
+      <details>
+        <summary>Hint</summary>
+        <p>[One hint that narrows the search space — per Polya, this should nudge
+           "understand" or "devise a plan," never do "carry out the plan" for them.]</p>
+      </details>
+      <details>
+        <summary>Solution</summary>
+        <p>[Full worked solution — explain the reasoning, not just the final answer/code.]</p>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <h2>Self-Check Quiz</h2>
+    <div class="quiz-q">
+      <p class="prompt">1. [Question tied to an objective from the content file]</p>
+      <details>
+        <summary>Answer</summary>
+        <p>[Answer + one-line why.]</p>
+      </details>
+    </div>
+    <!-- repeat quiz-q block, 3-6 total. From lesson 3 onward, mark at least
+         one block class="quiz-q callback" and write a question that calls
+         back to an earlier lesson's content — interleaving matters more
+         than hitting a specific quiz-question count. -->
+  </section>
+
+  <section class="revision">
+    <h2 style="border:none;padding-left:0;">Revision Notes</h2>
+    <ul>
+      <li><b>[Key term]</b> — [one-line definition]</li>
+      <li>[Most important takeaway, terse]</li>
+    </ul>
+  </section>
+
+  <p class="review-sched">🔁 Spaced review: revisit these revision notes in 1 day, 3 days, and 7 days to lock this in.</p>
+
+  <nav class="lesson-nav">
+    <a href="[prev-lesson]-practice.html">&larr; Previous practice</a>
+    <a href="index.html">Index</a>
+    <a href="[next-lesson]-practice.html">Next practice &rarr;</a>
+  </nav>
+
+</div>
+</body>
+</html>

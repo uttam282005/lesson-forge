@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+  LESSON CONTENT TEMPLATE — lesson-forge
+  Holds ONLY: header, objectives, core content, recommended reading, nav.
+  The exercise/quiz/revision notes live in the companion practice_template.html
+  file (same lesson number, "-practice" suffix) — do not merge them back here.
+  Copy this structure for every lesson's content file so the visual style stays
+  consistent. Replace all [BRACKETED] placeholders.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[LESSON N: TITLE]</title>
+<!-- KaTeX for math notation — leave in place even if this lesson has no
+     formulas (harmless if unused). Use \( ... \) inline and \[ ... \] or
+     $$ ... $$ for display equations in the content below. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '\\[', right: '\\]', display: true},
+    {left: '\\(', right: '\\)', display: false}
+  ]});"></script>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --muted: #5c5c70;
+    --accent: #4f5dd6;
+    --accent-soft: #eef0fd;
+    --bg: #fdfdfb;
+    --card: #ffffff;
+    --border: #e4e4ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+  header.lesson-head {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .meta-row {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    font-size: 0.85rem; color: var(--muted); margin-bottom: 8px;
+  }
+  .meta-row span { background: var(--accent-soft); padding: 3px 10px; border-radius: 999px; }
+  h1 { font-size: 1.7rem; margin: 4px 0 0; }
+  h2 {
+    font-size: 1.2rem; margin-top: 40px; margin-bottom: 12px;
+    color: var(--accent); border-left: 4px solid var(--accent);
+    padding-left: 10px;
+  }
+  h3 { font-size: 1rem; margin-top: 22px; }
+  section { margin-bottom: 8px; }
+  code, pre code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; }
+  pre {
+    background: #1a1a2e; color: #e8e8f0; padding: 14px 16px;
+    border-radius: 8px; overflow-x: auto; font-size: 0.88rem;
+  }
+  code:not(pre code) { background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; }
+  ul, ol { padding-left: 22px; }
+  .objectives { background: var(--accent-soft); border-radius: 10px; padding: 16px 20px; }
+  .objectives li { margin-bottom: 6px; }
+  a { color: var(--accent); }
+  .reading-list li { margin-bottom: 10px; }
+  .reading-list .note { color: var(--muted); font-size: 0.88rem; }
+  .practice-cta {
+    display: block; text-align: center; margin: 44px 0 10px;
+    background: var(--accent); color: #fff !important; text-decoration: none;
+    font-weight: 700; padding: 16px 20px; border-radius: 10px; font-size: 1.05rem;
+  }
+  .practice-cta:hover { opacity: 0.92; }
+  .practice-cta small { display: block; font-weight: 400; font-size: 0.8rem; opacity: 0.85; margin-top: 4px; }
+  nav.lesson-nav {
+    display: flex; justify-content: space-between; margin-top: 20px;
+    padding-top: 20px; border-top: 2px solid var(--border);
+    font-size: 0.9rem;
+  }
+  nav.lesson-nav a { text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="lesson-head">
+    <div class="meta-row">
+      <span>Lesson [N] of [TOTAL]</span>
+      <span>~[X] min</span>
+      <span>Prereq: [prior lesson title or "None"]</span>
+    </div>
+    <h1>[LESSON TITLE]</h1>
+  </header>
+
+  <section>
+    <h2>Objectives</h2>
+    <ul class="objectives">
+      <li>[By the end of this lesson you can ___]</li>
+      <li>[...]</li>
+      <li>[...]</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>[Core content — break into your own subheadings as needed]</h2>
+    <p>[Explanation, calibrated to confirmed depth. Lead with a concrete example or motivating problem before generalizing.]</p>
+    <!-- add <h3> subsections, <pre><code> blocks, examples as needed -->
+  </section>
+
+  <section>
+    <h2>Recommended Reading</h2>
+    <ul class="reading-list">
+      <li><a href="[REAL URL]">[Real source title]</a><br><span class="note">[why it's worth reading]</span></li>
+    </ul>
+  </section>
+
+  <a class="practice-cta" href="[NN-title]-practice.html">
+    Go to Exercise, Quiz &amp; Revision Notes &rarr;
+    <small>Practical exercise, self-check quiz, and spaced-review notes for this lesson</small>
+  </a>
+
+  <nav class="lesson-nav">
+    <a href="[prev-lesson].html">&larr; Previous lesson</a>
+    <a href="index.html">Index</a>
+    <a href="[next-lesson].html">Next lesson &rarr;</a>
+  </nav>
+
+</div>
+</body>
+</html>
