@@ -74,4 +74,4 @@ The skill takes it from there — expect a few clarifying questions, then an out
 
 ## License
 
-MIT (or match whatever license the rest of your skills repo uses).
+MIT
