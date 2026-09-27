@@ -6,11 +6,44 @@ Read once per curriculum-building session, not per lesson. This file exists beca
 
 **Objectives**: write as actions the learner can do, not topics "covered." Bad: "Understand recursion." Good: "Write a recursive function to traverse a tree and explain why the base case prevents infinite recursion." If you can't picture how you'd test the objective, rewrite it.
 
-**Core content**: depth calibration is the single biggest lever. "Survey" = readable in 5–10 min, prioritizes shape over precision. "Mastery" = mechanism, edge cases, why-not-alternatives. Lead with a concrete example or motivating problem before generalizing, especially below mastery depth. Subheadings every 3–5 paragraphs — one undifferentiated block is a sign to restructure. Name well-known misconceptions explicitly; pre-empting confusion beats hoping the correct version alone sinks in.
+**Core content**: depth calibration is the single biggest lever for *how much* to cover — "Survey" = readable in 5–10 min, prioritizes shape over precision; "Mastery" = mechanism, edge cases, why-not-alternatives, all still following the arc below, just going further through steps 3–4. Name well-known misconceptions explicitly; pre-empting confusion beats hoping the correct version alone sinks in. **How to explain it** is a separate, equally important lever — see "Writing explanations" below, which is not optional polish; it's the difference between a lesson that teaches and one that just states facts at a reader.
 
 **Revision notes**: this is re-read with zero other context, days or weeks later. Ruthless skimmability: short bullets, bolded key terms, no throat-clearing. 3–5 things that matter most, not everything the lesson covered. Isolate anything worth memorizing verbatim (a formula, a syntax pattern) on its own line.
 
 **Review schedule**: default 1/3/7-day spaced intervals are fine — the point is prompting the behavior, not precision-tuning the algorithm.
+
+---
+
+## Writing explanations: simple AND deep, not a tradeoff
+
+The most common failure mode of AI-generated lesson content is treating "easy to follow" and "has real depth" as opposing dials — either a shallow, hand-wavy analogy with no rigor, or a dense, jargon-first wall of correct-but-unfollowable prose. Neither teaches. They're not actually in tension when the explanation is built in the right order — depth that follows intuition is readable; depth that precedes it isn't.
+
+**The arc, for every non-trivial concept in a lesson (not just the lesson as a whole):**
+
+1. **Hook** — one or two plain-language sentences: what problem does this solve, or what does it let you do. No jargon, no notation yet.
+2. **Concrete instance** — a specific, small, tangible example: real numbers, a short real code snippet, an actual diagram, a worked case. This is where followability comes from. Abstraction is hard to hold in your head; a specific instance isn't. Get the reader looking at something concrete before asking them to generalize.
+3. **Formalize** — now give the precise definition, mechanism, or equation — and explicitly wire it back to the concrete instance just shown ("in the example above, this term was the 4 you just saw"). This is where depth and math belong. A formula introduced here, anchored to something the reader already has in hand, reads as clarifying; the same formula introduced first reads as a wall to climb.
+4. **Generalize / edge cases** (deeper depth levels only) — what varies, what breaks the pattern, why it's true in general and not just in the example.
+5. **Apply** — close the loop: where does this actually show up, what does it let you now do or explain that you couldn't before. Not a bolted-on "why this matters" paragraph disconnected from the content — a direct callback to the concrete instance or a new one.
+
+You don't always need every numbered step spelled out as a subheading — for a short concept, 2-3 sentences can move through hook → instance → formal in one paragraph. What matters is the *order*: never state a general/abstract claim (a property, a formula, a theorem, a mechanism) before the reader has seen one concrete instance of it, and never introduce notation without narrating in words what it means at first use.
+
+**Rules that follow from this:**
+- **Never leave a formula un-narrated.** Say in plain words what it computes before showing it, then walk through what each symbol means, then show it applied to actual numbers. A formula with no surrounding sentence is not depth, it's a wall.
+- **Never leave an abstract claim un-anchored.** If you write a general statement ("caches exploit locality," "this algorithm is O(n log n)," "the CLT applies here"), the next sentence should ground it in the specific instance already on the page, not just assert it and move on.
+- **Depth ≠ density.** Depth means covering mechanism, edge cases, and *why* — clearly. Density (unexplained jargon, formula-first, heavily compressed prose) is not the same thing and is usually what "too hard to follow" is actually complaining about. If a passage is dense AND hard to follow, the fix is almost always adding the missing hook/instance steps, not removing content.
+- **Bullet lists are for enumerable facts** (a register list, a menu of options, a set of properties), not for explaining *why* or *how* something works. A concept explanation should read as connected prose following the arc above — a flat bullet list of true facts about a mechanism is usually a sign the intuition-building step got skipped, not a legitimate compact format.
+- **Math where needed means actually using notation** (see KaTeX support in the templates) **when it's the clearest way to say something** — not avoiding it in the name of accessibility (that just relocates the difficulty into imprecise prose) and not reaching for it before the plain-language version has done its job.
+
+**Before/after, same fact, ~40 words either way:**
+
+*Too dense (formula-first, no anchor):*
+> Cache lines map to sets via `(address / line_size) mod num_sets`, exploiting spatial and temporal locality in a set-associative structure.
+
+*Right shape (hook → instance → formal → apply):*
+> Say the CPU wants byte 12,345 from RAM. It doesn't fetch just that byte — it pulls in a whole 64-byte chunk around it, betting you'll want the neighboring bytes soon (you usually do — this is *spatial locality*). That chunk is called a cache line. Which line a given address lands in is computed as `address / line_size` — for byte 12,345 with 64-byte lines, that's line 192. This is exactly why looping over an array in order is fast and jumping around randomly isn't: sequential access keeps reusing lines already pulled in.
+
+Same information, same rigor, same formula — the second version is longer but is the one an actual reader follows and retains, because the formula lands on a reader who already has a concrete case to hang it on. Match this shape, not the compressed one, even when it costs more words.
 
 ---
 

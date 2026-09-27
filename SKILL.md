@@ -71,7 +71,7 @@ Read `assets/lesson_template.html` and `assets/practice_template.html` for struc
 **Content file** (`NN-title.html`) must include:
 - **Header**: lesson number, title, estimated time, prerequisites
 - **Objectives**: 3–5 concrete, testable "by the end of this lesson you can ___" statements
-- **Core content**: explanation at the confirmed depth, worked examples before generalization, subheadings, code blocks or math notation as the topic demands (both templates include KaTeX for math — wrap inline math in `\( \)` and display math in `\[ \]`; leave unused if the lesson has no notation)
+- **Core content**: explanation at the confirmed depth, written per the hook → concrete instance → formalize → apply arc in `references/pedagogy.md` ("Writing explanations") — never state a formula or general claim before the reader has one concrete instance to anchor it to. Code blocks or math notation as the topic demands (both templates include KaTeX — wrap inline math in `\( \)` and display math in `\[ \]`; leave unused if the lesson has no notation). This is the section most likely to make or break the lesson; don't compress it into a bullet-listed fact dump to save space.
 - **Recommended reading**: real links from Step 3, one-line note on why each is worth reading
 - **Nav**: prominent link to the practice file, plus prev/next lesson and index
 
